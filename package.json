@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Preview CSS themes with HTML sample content",
   "scripts": {
+    "build": "npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve"
   },
   "repository": {
