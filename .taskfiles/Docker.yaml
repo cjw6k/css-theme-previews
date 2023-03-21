@@ -1,0 +1,25 @@
+version: '3'
+
+tasks:
+  build: docker build -t cjw6k/css-theme-previews:dev -f Dockerfile .
+
+  # windows: https://github.com/merofeev/docker-windows-volume-watcher/issues/19#issuecomment-1186194643
+  run: |
+    docker run --rm -it -p 8080:8080 \
+      -v "$PWD/src:/opt/css/src" \
+      -v "$PWD/public:/opt/css/public" \
+      cjw6k/css-theme-previews:dev
+
+  dev:
+    cmds:
+      - task: build
+      - task: run
+
+  dev-custom:
+    cmds:
+      - task: build
+      - docker run --rm -it {{.CLI_ARGS}} cjw6k/css-theme-previews:dev
+
+  dive-ui: dive cjw6k/css-theme-previews:dev
+
+  dive: dive cjw6k/css-theme-previews:dev --ci

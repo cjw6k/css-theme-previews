@@ -10,6 +10,8 @@ includes:
       - pc
     taskfile: .taskfiles/PreCommit.yaml
 
+  docker: .taskfiles/Docker.yaml
+
 tasks:
   default:
     desc: List available tasks in this project

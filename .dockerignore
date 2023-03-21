@@ -1,0 +1,10 @@
+.idea/
+.git/
+.taskfiles/
+node_modules/
+_site/
+.gitignore
+.dockerignore
+.pre-commit-config.yaml
+Dockerfile
+Taskfile.yaml
