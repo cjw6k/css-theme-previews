@@ -4,6 +4,7 @@
   "description": "Preview CSS themes with HTML sample content",
   "scripts": {
     "build": "npx @11ty/eleventy",
+    "build-gh": "npx @11ty/eleventy --pathprefix=/css-theme-previews/",
     "start": "npx @11ty/eleventy --serve"
   },
   "repository": {
