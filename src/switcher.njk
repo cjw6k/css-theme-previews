@@ -1,0 +1,26 @@
+---
+title: Theme Switcher
+layout: default.njk
+permalink: switcher.html
+---
+<main>
+    <p>
+        🎨
+        <select>
+            <optgroup label="Browser Default">
+                <option value="">browser default</option>
+            </optgroup>
+            <optgroup label="No-class CSS Frameworks">
+                {% for theme in noClassCss %}
+                    <option value="{{ theme.css }}">{{ theme.name }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Resets">
+                {% for theme in resets %}
+                    <option value="{{ theme.css }}">{{ theme.name }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+    </p>
+</main>
+<script>{% include 'public/theme-switcher.js' %}</script>
