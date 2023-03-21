@@ -1,0 +1,17 @@
+{
+  "name": "css-theme-previews",
+  "version": "0.1.0",
+  "description": "Preview CSS themes with HTML sample content",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cjw6k/css-theme-previews"
+  },
+  "author": "cjw6k",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  }
+}
