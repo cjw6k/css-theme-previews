@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+silent: true
+
+includes:
+  precommit:
+    aliases:
+      - pc
+    taskfile: .taskfiles/PreCommit.yaml
+
+tasks:
+  default:
+    desc: List available tasks in this project
+    cmds:
+      - task -a
