@@ -55,6 +55,9 @@ function prepareThemes(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/sanitize.css/sanitize.css': 'resets/sanitize.css'});
+    themes.resets.push({name: 'sanitize.css', css: 'resets/sanitize.css'});
+
     eleventyConfig.addGlobalData('noClassCss', themes.noClassCss);
     eleventyConfig.addGlobalData('resets', themes.resets);
 }
