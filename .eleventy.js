@@ -97,6 +97,11 @@ function prepareThemes(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'node_modules/@exampledev/new.css/new.css': 'noClassCss/new.css/new.css'});
     themes.noClassCss.push({name: 'new.css', css: 'noClassCss/new.css/new.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/bullframe.css/dist/css/bullframe-classless.css': 'noClassCss/bullframe.css/bullframe-classless.css'});
+    eleventyConfig.addPassthroughCopy({'node_modules/bullframe.css/dist/css/bullframe-classless-dark.css': 'noClassCss/bullframe.css/bullframe-classless-dark.css'});
+    themes.noClassCss.push({name: 'bullframe.css', css: 'noClassCss/bullframe.css/bullframe-classless.css'});
+    themes.noClassCss.push({name: 'bullframe.css (dark)', css: 'noClassCss/bullframe.css/bullframe-classless-dark.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
