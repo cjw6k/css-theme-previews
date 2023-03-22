@@ -1,71 +1,10 @@
+const fs = require('fs');
 const posthtml = require('posthtml');
-const { Transform } = require('node:stream');
 
 module.exports = function (eleventyConfig) {
-    const themes = prepareThemes(eleventyConfig);
+    publishHtmlTestPages(eleventyConfig);
 
     eleventyConfig.addPassthroughCopy({'public': '/'});
-
-    eleventyConfig.addPassthroughCopy({
-       'node_modules/html5-test-page/index.html': 'index.html',
-    }, {
-        transform: () => {
-            return new Transform({
-                transform(chunk, encoding, callback) {
-                    callback(
-                        null,
-                        posthtml()
-                            .use(tree => {
-                                tree.match({tag: "body"}, node => {
-                                    node.content.push({
-                                       tag: 'script',
-                                       attrs: {
-                                           src: 'theme-switcher.js',
-                                       },
-                                    });
-
-                                    return node;
-                                });
-
-                                tree.match({tag: "head"}, node => {
-                                   for (let i in themes.resets) {
-                                       node.content.push({
-                                           tag: 'link',
-                                           attrs: {
-                                               rel: 'prefetch',
-                                               href: themes.resets[i].css,
-                                           }
-                                       });
-                                   }
-                                   for (let i in themes.noClassCss) {
-                                       if (
-                                           typeof themes.noClassCss[i].preload !== 'undefined'
-                                           && ! themes.noClassCss[i].preload
-                                       ) {
-                                           continue;
-                                       }
-
-                                       node.content.push({
-                                           tag: 'link',
-                                           attrs: {
-                                               rel: 'prefetch',
-                                               href: themes.noClassCss[i].css,
-                                           }
-                                       });
-                                   }
-
-                                   return node;
-                                });
-                            })
-                            .process(chunk, {
-                                sync: true,
-                            })
-                            .html
-                    )
-                }
-            });
-        }
-    });
 
     return {
         dir: {
@@ -75,6 +14,15 @@ module.exports = function (eleventyConfig) {
         }
     };
 };
+
+function publishHtmlTestPages(eleventyConfig) {
+    const themes = prepareThemes(eleventyConfig);
+    const html5TestPage = decorateHtml(
+        themes,
+        fs.readFileSync('node_modules/html5-test-page/index.html').toString()
+    );
+    fs.writeFileSync('_site/index.html', html5TestPage);
+}
 
 function prepareThemes(eleventyConfig) {
     let themes = {noClassCss: [], resets: []};
@@ -152,4 +100,55 @@ function prepareThemes(eleventyConfig) {
     eleventyConfig.addGlobalData('resets', themes.resets);
 
     return themes;
+}
+
+function decorateHtml(themes, html) {
+    return posthtml()
+        .use(tree => {
+            tree.match({tag: "head"}, node => prefetchThemes(themes, node));
+            tree.match({tag: "body"}, addThemeSwitcherToBody);
+        })
+        .process(html, {sync: true}).html;
+}
+
+function addThemeSwitcherToBody(node) {
+    node.content.push({
+        tag: 'script',
+        attrs: {
+            src: 'theme-switcher.js',
+        },
+    });
+
+    return node;
+}
+
+function prefetchThemes(themes, node) {
+    for (let i in themes.resets) {
+        node.content.push({
+            tag: 'link',
+            attrs: {
+                rel: 'prefetch',
+                href: themes.resets[i].css,
+            }
+        });
+    }
+
+    for (let i in themes.noClassCss) {
+        if (
+            typeof themes.noClassCss[i].preload !== 'undefined'
+            && ! themes.noClassCss[i].preload
+        ) {
+            continue;
+        }
+
+        node.content.push({
+            tag: 'link',
+            attrs: {
+                rel: 'prefetch',
+                href: themes.noClassCss[i].css,
+            }
+        });
+    }
+
+    return node;
 }
