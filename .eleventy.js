@@ -99,9 +99,6 @@ function prepareThemes(eleventyConfig) {
     themes.noClassCss.push({name: 'bamboo.css (light)', css: 'noClassCss/bamboo.css/light.min.css'});
     themes.noClassCss.push({name: 'bamboo.css (dark)', css: 'noClassCss/bamboo.css/dark.min.css'});
 
-    eleventyConfig.addPassthroughCopy({'node_modules/mvp.css/mvp.css': 'noClassCss/mvp.css/mvp.css'});
-    themes.noClassCss.push({name: 'mvp.css', css: 'noClassCss/mvp.css/mvp.css'});
-
     eleventyConfig.addPassthroughCopy({'node_modules/awsm.css/dist': 'noClassCss/awsm.css'});
     themes.noClassCss.push({name: 'awsm.css', css: 'noClassCss/awsm.css/awsm.css'});
     themes.noClassCss.push({name: 'awsm.css (big stone)', css: 'noClassCss/awsm.css/awsm_theme_big-stone.css'});
@@ -115,6 +112,9 @@ function prepareThemes(eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy({'node_modules/holiday.css/dist': 'noClassCss/holiday.css'});
     themes.noClassCss.push({name: 'holiday.css', css: 'noClassCss/holiday.css/holiday.css'});
+
+    eleventyConfig.addPassthroughCopy({'node_modules/mvp.css/mvp.css': 'noClassCss/mvp.css/mvp.css'});
+    themes.noClassCss.push({name: 'mvp.css', css: 'noClassCss/mvp.css/mvp.css'});
 
     eleventyConfig.addPassthroughCopy({'node_modules/marx-css/css': 'noClassCss/marx-css'});
     themes.noClassCss.push({name: 'marx-css', css: 'noClassCss/marx-css/marx.css'});
