@@ -133,6 +133,9 @@ function prepareThemes(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'node_modules/latex.css/style.min.css': 'noClassCss/latex.css/style.min.css'});
     themes.noClassCss.push({name: 'LaTeX.css', css: 'noClassCss/latex.css/style.min.css', preload: false});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/mine.css/dist/mine.css': 'noClassCss/mine.css/mine.css'});
+    themes.noClassCss.push({name: 'mine.css', css: 'noClassCss/mine.css/mine.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
