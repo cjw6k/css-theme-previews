@@ -2,7 +2,7 @@ const posthtml = require('posthtml');
 const { Transform } = require('node:stream');
 
 module.exports = function (eleventyConfig) {
-    prepareThemes(eleventyConfig);
+    const themes = prepareThemes(eleventyConfig);
 
     eleventyConfig.addPassthroughCopy({'public': '/'});
 
@@ -25,7 +25,21 @@ module.exports = function (eleventyConfig) {
                                     });
 
                                     return node;
-                                })
+                                });
+
+                                tree.match({tag: "head"}, node => {
+                                   for (let i in themes.resets) {
+                                       node.content.push({
+                                           tag: 'link',
+                                           attrs: {
+                                               rel: 'prefetch',
+                                               href: themes.resets[i].css,
+                                           }
+                                       });
+                                   }
+
+                                   return node;
+                                });
                             })
                             .process(chunk, {
                                 sync: true,
@@ -64,4 +78,6 @@ function prepareThemes(eleventyConfig) {
 
     eleventyConfig.addGlobalData('noClassCss', themes.noClassCss);
     eleventyConfig.addGlobalData('resets', themes.resets);
+
+    return themes;
 }
