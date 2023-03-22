@@ -120,6 +120,9 @@ function prepareThemes(eleventyConfig) {
     themes.noClassCss.push({name: 'bullframe.css', css: 'noClassCss/bullframe.css/bullframe-classless.css'});
     themes.noClassCss.push({name: 'bullframe.css (dark)', css: 'noClassCss/bullframe.css/bullframe-classless-dark.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/boltcss/bolt.css': 'noClassCss/boltcss/bolt.css'});
+    themes.noClassCss.push({name: 'boltcss', css: 'noClassCss/boltcss/bolt.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
