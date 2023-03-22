@@ -69,6 +69,9 @@ function prepareThemes(eleventyConfig) {
     themes.noClassCss.push({name: 'water.css (light)', css: 'noClassCss/water.css/light.css'});
     themes.noClassCss.push({name: 'water.css (dark)', css: 'noClassCss/water.css/dark.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/mvp.css/mvp.css': 'noClassCss/mvp.css/mvp.css'});
+    themes.noClassCss.push({name: 'mvp.css', css: 'noClassCss/mvp.css/mvp.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
