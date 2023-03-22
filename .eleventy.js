@@ -38,6 +38,13 @@ module.exports = function (eleventyConfig) {
                                        });
                                    }
                                    for (let i in themes.noClassCss) {
+                                       if (
+                                           typeof themes.noClassCss[i].preload !== 'undefined'
+                                           && ! themes.noClassCss[i].preload
+                                       ) {
+                                           continue;
+                                       }
+
                                        node.content.push({
                                            tag: 'link',
                                            attrs: {
@@ -122,6 +129,9 @@ function prepareThemes(eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy({'node_modules/boltcss/bolt.css': 'noClassCss/boltcss/bolt.css'});
     themes.noClassCss.push({name: 'boltcss', css: 'noClassCss/boltcss/bolt.css'});
+
+    eleventyConfig.addPassthroughCopy({'node_modules/latex.css/style.min.css': 'noClassCss/latex.css/style.min.css'});
+    themes.noClassCss.push({name: 'LaTeX.css', css: 'noClassCss/latex.css/style.min.css', preload: false});
 
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
