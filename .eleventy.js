@@ -37,6 +37,15 @@ module.exports = function (eleventyConfig) {
                                            }
                                        });
                                    }
+                                   for (let i in themes.noClassCss) {
+                                       node.content.push({
+                                           tag: 'link',
+                                           attrs: {
+                                               rel: 'prefetch',
+                                               href: themes.noClassCss[i].css,
+                                           }
+                                       });
+                                   }
 
                                    return node;
                                 });
