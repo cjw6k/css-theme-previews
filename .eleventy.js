@@ -83,6 +83,9 @@ function prepareThemes(eleventyConfig) {
     themes.noClassCss.push({name: 'awsm.css (tasman)', css: 'noClassCss/awsm.css/awsm_theme_tasman.css'});
     themes.noClassCss.push({name: 'awsm.css (white)', css: 'noClassCss/awsm.css/awsm_theme_white.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/holiday.css/dist': 'noClassCss/holiday.css'});
+    themes.noClassCss.push({name: 'holiday.css', css: 'noClassCss/holiday.css/holiday.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
