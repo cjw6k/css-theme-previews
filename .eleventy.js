@@ -86,6 +86,9 @@ function prepareThemes(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'node_modules/holiday.css/dist': 'noClassCss/holiday.css'});
     themes.noClassCss.push({name: 'holiday.css', css: 'noClassCss/holiday.css/holiday.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/marx-css/css': 'noClassCss/marx-css'});
+    themes.noClassCss.push({name: 'marx-css', css: 'noClassCss/marx-css/marx.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
