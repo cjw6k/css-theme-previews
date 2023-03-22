@@ -50,6 +50,10 @@ function prepareThemes(eleventyConfig) {
     let themes = {noClassCss: [], resets: []};
 
     // No-Class
+    eleventyConfig.addPassthroughCopy({'node_modules/water.css/out': 'noClassCss/water.css'});
+    themes.noClassCss.push({name: 'water.css', css: 'noClassCss/water.css/water.css'});
+    themes.noClassCss.push({name: 'water.css (light)', css: 'noClassCss/water.css/light.css'});
+    themes.noClassCss.push({name: 'water.css (dark)', css: 'noClassCss/water.css/dark.css'});
 
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
