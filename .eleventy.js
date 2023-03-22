@@ -94,6 +94,11 @@ function prepareThemes(eleventyConfig) {
     themes.noClassCss.push({name: 'sakura.css (pink)', css: 'noClassCss/sakura.css/sakura-pink.css'});
     themes.noClassCss.push({name: 'sakura.css (vader)', css: 'noClassCss/sakura.css/sakura-vader.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/bamboo.css/dist': 'noClassCss/bamboo.css'});
+    themes.noClassCss.push({name: 'bamboo.css', css: 'noClassCss/bamboo.css/bamboo.min.css'});
+    themes.noClassCss.push({name: 'bamboo.css (light)', css: 'noClassCss/bamboo.css/light.min.css'});
+    themes.noClassCss.push({name: 'bamboo.css (dark)', css: 'noClassCss/bamboo.css/dark.min.css'});
+
     eleventyConfig.addPassthroughCopy({'node_modules/mvp.css/mvp.css': 'noClassCss/mvp.css/mvp.css'});
     themes.noClassCss.push({name: 'mvp.css', css: 'noClassCss/mvp.css/mvp.css'});
 
