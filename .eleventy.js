@@ -89,6 +89,14 @@ function prepareThemes(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'node_modules/marx-css/css': 'noClassCss/marx-css'});
     themes.noClassCss.push({name: 'marx-css', css: 'noClassCss/marx-css/marx.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/style.css/style.css': 'noClassCss/style.css/style.css'});
+    eleventyConfig.addPassthroughCopy({'node_modules/style.css/serif.css': 'noClassCss/style.css/serif.css'});
+    themes.noClassCss.push({name: 'style.css', css: 'noClassCss/style.css/style.css'});
+    themes.noClassCss.push({name: 'style.css (serif)', css: 'noClassCss/style.css/serif.css'});
+
+    eleventyConfig.addPassthroughCopy({'node_modules/@exampledev/new.css/new.css': 'noClassCss/new.css/new.css'});
+    themes.noClassCss.push({name: 'new.css', css: 'noClassCss/new.css/new.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
