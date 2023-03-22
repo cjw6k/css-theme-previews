@@ -72,6 +72,17 @@ function prepareThemes(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'node_modules/mvp.css/mvp.css': 'noClassCss/mvp.css/mvp.css'});
     themes.noClassCss.push({name: 'mvp.css', css: 'noClassCss/mvp.css/mvp.css'});
 
+    eleventyConfig.addPassthroughCopy({'node_modules/awsm.css/dist': 'noClassCss/awsm.css'});
+    themes.noClassCss.push({name: 'awsm.css', css: 'noClassCss/awsm.css/awsm.css'});
+    themes.noClassCss.push({name: 'awsm.css (big stone)', css: 'noClassCss/awsm.css/awsm_theme_big-stone.css'});
+    themes.noClassCss.push({name: 'awsm.css (black)', css: 'noClassCss/awsm.css/awsm_theme_black.css'});
+    themes.noClassCss.push({name: 'awsm.css (gondola)', css: 'noClassCss/awsm.css/awsm_theme_gondola.css'});
+    themes.noClassCss.push({name: 'awsm.css (mischka)', css: 'noClassCss/awsm.css/awsm_theme_mischka.css'});
+    themes.noClassCss.push({name: 'awsm.css (pastel pink)', css: 'noClassCss/awsm.css/awsm_theme_pastel-pink.css'});
+    themes.noClassCss.push({name: 'awsm.css (pearl lusta)', css: 'noClassCss/awsm.css/awsm_theme_pearl-lusta.css'});
+    themes.noClassCss.push({name: 'awsm.css (tasman)', css: 'noClassCss/awsm.css/awsm_theme_tasman.css'});
+    themes.noClassCss.push({name: 'awsm.css (white)', css: 'noClassCss/awsm.css/awsm_theme_white.css'});
+
     // Resets
     eleventyConfig.addPassthroughCopy({'node_modules/normalize.css/normalize.css': 'resets/normalize.css'});
     themes.resets.push({name: 'normalize.css', css: 'resets/normalize.css'});
