@@ -22,6 +22,9 @@ function publishHtmlTestPages(eleventyConfig) {
         themes,
         fs.readFileSync('node_modules/html5-test-page/index.html').toString()
     );
+    if (! fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir);
+    }
     fs.writeFileSync(outputDir + '/index.html', html5TestPage);
 }
 
