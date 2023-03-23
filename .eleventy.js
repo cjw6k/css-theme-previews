@@ -110,7 +110,7 @@ function prepareThemes(eleventyConfig) {
         {name: 'style.css (serif)', css: 'noClassCss/style.css/serif.min.css'},
     );
     minifyCss('node_modules/style.css/style.css', 'noClassCss/style.css/style.min.css');
-    minifyCss('node_modules/style.css/style.css', 'noClassCss/style.css/serif.min.css');
+    minifyCss('node_modules/style.css/serif.css', 'noClassCss/style.css/serif.min.css');
 
     eleventyConfig.addPassthroughCopy({'node_modules/@exampledev/new.css/new.css': 'noClassCss/new.css/new.css'});
     themes.noClassCss.push({name: 'new.css', css: 'noClassCss/new.css/new.min.css'});
