@@ -1,5 +1,6 @@
 const fs = require('fs');
 const posthtml = require('posthtml');
+const outputDir = '_site';
 
 module.exports = function (eleventyConfig) {
     publishHtmlTestPages(eleventyConfig);
@@ -9,7 +10,7 @@ module.exports = function (eleventyConfig) {
     return {
         dir: {
             input: 'src',
-            output: '_site',
+            output: outputDir,
             layouts: '_layouts',
         }
     };
@@ -21,7 +22,7 @@ function publishHtmlTestPages(eleventyConfig) {
         themes,
         fs.readFileSync('node_modules/html5-test-page/index.html').toString()
     );
-    fs.writeFileSync('_site/index.html', html5TestPage);
+    fs.writeFileSync(outputDir + '/index.html', html5TestPage);
 }
 
 function prepareThemes(eleventyConfig) {
