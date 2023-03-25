@@ -21,8 +21,14 @@ repos:
     hooks:
       - id: hadolint
 
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.6.23
+    hooks:
+      - id: actionlint
+
 ci:
   autofix_commit_msg: "⚙ auto fixes [pre-commit.ci]"
   autoupdate_commit_msg: "⚙ auto updates [pre-commit.ci]"
   skip:
     - hadolint
+    - actionlint
