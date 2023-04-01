@@ -21,7 +21,7 @@
     "boltcss": "^0.5.1",
     "bullframe.css": "^4.0.1",
     "cssnano": "^5.1.15",
-    "cssnano-preset-default": "^5.2.14",
+    "cssnano-preset-default": "^6.0.0",
     "holiday.css": "^0.11.0",
     "html5-test-page": "^0.9.7",
     "latex.css": "^1.9.0",
