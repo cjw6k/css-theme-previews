@@ -1,8 +1,8 @@
-FROM alpine:edge@sha256:2d01a16bab53a8405876cec4c27235d47455a7b72b75334c614f2fb0968b3f90
+FROM alpine:3.18.2@sha256:25fad2a32ad1f6f510e528448ae1ec69a28ef81916a004d3629874104f8a7f70
 
 RUN apk add --no-cache \
-    nodejs=18.15.0-r0 \
-    npm=9.6.3-r0
+    nodejs=18.17.0-r0 \
+    npm=9.6.6-r0
 
 WORKDIR /opt/css
 
