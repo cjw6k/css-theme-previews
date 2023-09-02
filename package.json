@@ -31,7 +31,7 @@
     "normalize.css": "^8.0.1",
     "postcss": "^8.4.28",
     "posthtml": "^0.16.6",
-    "sakura.css": "^1.4.1",
+    "sakura.css": "^1.5.0",
     "sanitize.css": "^13.0.0",
     "style.css": "^1.0.3",
     "water.css": "^2.1.1"
