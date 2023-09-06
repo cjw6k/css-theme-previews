@@ -59,6 +59,7 @@ function prepareThemes(eleventyConfig) {
     minifyCss('node_modules/sakura.css/css/sakura-earthly.css', 'noClassCss/sakura.css/sakura-earthly.min.css');
     minifyCss('node_modules/sakura.css/css/sakura-ink.css', 'noClassCss/sakura.css/sakura-ink.min.css');
     minifyCss('node_modules/sakura.css/css/sakura-pink.css', 'noClassCss/sakura.css/sakura-pink.min.css');
+    minifyCss('node_modules/sakura.css/css/sakura-radical.css', 'noClassCss/sakura.css/sakura-radical.min.css');
     minifyCss('node_modules/sakura.css/css/sakura-vader.css', 'noClassCss/sakura.css/sakura-vader.min.css');
     themes.noClassCss.push(
         {name: 'sakura.css', css: 'noClassCss/sakura.css/sakura.min.css'},
@@ -67,6 +68,7 @@ function prepareThemes(eleventyConfig) {
         {name: 'sakura.css (earthly)', css: 'noClassCss/sakura.css/sakura-earthly.min.css'},
         {name: 'sakura.css (ink)', css: 'noClassCss/sakura.css/sakura-ink.min.css'},
         {name: 'sakura.css (pink)', css: 'noClassCss/sakura.css/sakura-pink.min.css'},
+        {name: 'sakura.css (radical)', css: 'noClassCss/sakura.css/sakura-radical.min.css'},
         {name: 'sakura.css (vader)', css: 'noClassCss/sakura.css/sakura-vader.min.css'},
     );
 
