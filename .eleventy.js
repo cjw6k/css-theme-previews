@@ -45,10 +45,10 @@ function prepareThemes(eleventyConfig) {
     };
 
     // No-Class
-    eleventyConfig.addPassthroughCopy({'node_modules/@lowlighter/matcha/dist/matcha.lite.css': 'noClassCss/matcha.lite.css'});
-    minifyCss('node_modules/@lowlighter/matcha/dist/matcha.lite.css', 'noClassCss/matcha-lite.min.css');
+    eleventyConfig.addPassthroughCopy({'node_modules/@lowlighter/matcha/dist/': 'noClassCss/matcha.css'});
+    minifyCss('node_modules/@lowlighter/matcha/dist/matcha.lite.css', 'noClassCss/matcha.css/matcha-lite.min.css');
     themes.noClassCss.push(
-        {name: 'matcha.css (lite)', css: 'noClassCss/matcha-lite.min.css'},
+        {name: 'matcha.css (lite)', css: 'noClassCss/matcha.css/matcha-lite.min.css'},
     );
 
     eleventyConfig.addPassthroughCopy({'node_modules/water.css/out': 'noClassCss/water.css'});
