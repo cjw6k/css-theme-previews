@@ -30,7 +30,7 @@
     "mvp.css": "^1.17.2",
     "normalize.css": "^8.0.1",
     "postcss": "^8.5.6",
-    "posthtml": "^0.16.6",
+    "posthtml": "^0.16.7",
     "sakura.css": "^1.5.1",
     "sanitize.css": "^13.0.0",
     "style.css": "^1.0.3",
